@@ -7,7 +7,7 @@
   "license": "MIT",
   "keywords" : [
     "magicbook",
-    "magicbook-plugin",
+    "magicbook-plugin"
   ],
   "dependencies": {
     "cheerio": "^0.20.0",
