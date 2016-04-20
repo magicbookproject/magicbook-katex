@@ -1,6 +1,6 @@
 ## Magicbook katex
 
-This pluginallows you to write math equations via latex math expressions and automatically render these with the Katex math library. We chose to use Katex over Mathjax as it's faster, smaller, and supports bundling alongside other libraries. Mathjax is problematic when it comes to these things.
+This plugin allows you to write math equations via latex math expressions and automatically render these with the Katex math library. We chose to use Katex over Mathjax as it's faster, smaller, and supports bundling alongside other libraries. Mathjax is problematic when it comes to these things.
 
 ## Using the plugin
 
