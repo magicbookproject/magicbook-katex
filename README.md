@@ -4,6 +4,12 @@ This pluginallows you to write math equations via latex math expressions and aut
 
 ## Using the plugin
 
+First install the NPM package, either in your `package.json` file in your book repo, or by running the following.
+
+```
+npm i magicbook-katex
+```
+
 Just add the plugin to your config.
 
 ```json
