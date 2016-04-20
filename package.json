@@ -1,19 +1,18 @@
 {
-  "repository": "https://github.com/magicbookproject/magicbook-codesplit.git",
+  "repository": "https://github.com/magicbookproject/magicbook-katex.git",
   "version": "0.0.3",
-  "name": "magicbook-codesplit",
-  "description": "Codesplit plugin for magicbook",
+  "name": "magicbook-katex",
+  "description": "Katex plugin for magicbook",
   "author": "magicbookproject",
   "license": "MIT",
-  "main": "src/codesplit.js",
+  "main": "src/katex.js",
   "keywords" : [
     "magicbook",
     "magicbook-plugin"
   ],
   "dependencies": {
-    "cheerio": "^0.20.0",
     "lodash": "^4.6.1",
-    "tinyliquid": "^0.2.31"
+    "markdown-it-katex": "^1.1.0"
   },
   "devDependencies": {
     "jasmine": "^2.4.1",

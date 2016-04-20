@@ -1,50 +1,25 @@
-# Magicbook Codesplit
+## Magicbook katex
 
-This is a plugin that allows you to write example code in `.js` files, and include them in your book. It will parse your JavaScript files into sections with code and comments, so you can lay out your example in a nice, intuitive way.
+This pluginallows you to write math equations via latex math expressions and automatically render these with the Katex math library. We chose to use Katex over Mathjax as it's faster, smaller, and supports bundling alongside other libraries. Mathjax is problematic when it comes to these things.
 
-## Using codesplit
+## Using the plugin
 
-Simply add this to your config file/
+Just add the plugin to your config.
 
 ```json
 {
-  "addPlugins" : ["magicbook-codesplit"],
-  "codesplit" : {
-    "includes" : "examples"
-  }
+  "addPlugins" : ["magicbook-katex"]
 }
 ```
 
-Then create this file in `examples/example.js`.
-
-```js
-// This is an example
-var myName = "Rune Madsen";
-```
-
-Then in your content, use the `codesplit` tag.
+Then write some content with math markup. Here's an example with an inline and block math equations in your markdown.
 
 ```md
-Now I want to show you an example.
+This is an inline equation: $$5 + 5$$. The following is a block equation:
 
-{% codesplit example.js $}
+$$
+5 + 5
+$$
 ```
 
-When building the book, codesplit will output the following basic structure for you.
-
-```html
-<p>Now I want to show you an example</p>
-
-<div class="codesplit">
-  <div class="codesplit-content">
-    <div class="codesplit-comment">
-      <p>This is an example</p>
-    </div>
-    <div class="codesplit-code">
-      <pre><code>var myName = "Rune Madsen";</code></pre>
-    </div>
-  </div>
-</div>
-```
-
-You have to write your own CSS to style these DIV's. The markup allows you to show the layout in a horizontal and vertical way.
+The required JavaScript, stylesheets and fonts will automatically be added to the build assets during the build process.
