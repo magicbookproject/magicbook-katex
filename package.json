@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/magicbookproject/magicbook-katex.git",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "name": "magicbook-katex",
   "description": "Katex plugin for magicbook",
   "author": "magicbookproject",

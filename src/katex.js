@@ -17,36 +17,23 @@ Plugin.prototype = {
     // make sure we parse $-$ and $$-$$ into katex markup
     extras.md.use(markdownitKatex);
 
-    if(config.format != 'pdf') {
-
-      // Stylesheets
-      var css = path.join(__dirname, "..", "assets", "katex", "katex.scss");
-      config.stylesheets = config.stylesheets || {};
-      config.stylesheets.files = config.stylesheets.files || [];
-      if(_.isString(config.stylesheets.files)) {
-        config.stylesheets.files = [config.stylesheets.files]
-      }
-      config.stylesheets.files.push(css);
-
-      // Javascripts
-      var js = path.join(__dirname, "..", "assets", "katex", "katex.min.js");
-      config.javascripts = config.javascripts || {};
-      config.javascripts.files = config.javascripts.files || [];
-      if(_.isString(config.javascripts.files)) {
-        config.javascripts.files = [config.javascripts.files]
-      }
-      config.javascripts.files.push(js);
-
-      // Fonts
-      var fonts = path.join(__dirname, "..", "assets", "katex", "fonts", "**/*.*");
-      config.fonts = config.fonts || {};
-      config.fonts.files = config.fonts.files || [];
-      if(_.isString(config.fonts.files)) {
-        config.fonts.files = [config.fonts.files]
-      }
-      config.fonts.files.push(fonts);
-
+    // Stylesheets
+    var css = path.join(__dirname, "..", "assets", "katex", "katex.scss");
+    config.stylesheets = config.stylesheets || {};
+    config.stylesheets.files = config.stylesheets.files || [];
+    if(_.isString(config.stylesheets.files)) {
+      config.stylesheets.files = [config.stylesheets.files]
     }
+    config.stylesheets.files.push(css);
+
+    // Fonts
+    var fonts = path.join(__dirname, "..", "assets", "katex", "fonts", "**/*.*");
+    config.fonts = config.fonts || {};
+    config.fonts.files = config.fonts.files || [];
+    if(_.isString(config.fonts.files)) {
+      config.fonts.files = [config.fonts.files]
+    }
+    config.fonts.files.push(fonts);
 
     callback(null, config, extras);
   },
@@ -65,12 +52,6 @@ Plugin.prototype = {
         jel.replaceWith(newEl);
         found = true;
       });
-
-      // if this is PDF, remove extra katex stuff to just leave
-      // mathml.
-      if(config.format == 'pdf') {
-        file.$el('math annotation, .katex-html').remove();
-      }
 
       if(found) {
         file.contents = new Buffer(file.$el.html());

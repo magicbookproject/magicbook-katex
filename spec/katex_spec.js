@@ -53,53 +53,24 @@ describe("Katex", function() {
     });
   });
 
-  describe("HTML", function() {
-
-    it("should include katex.css in the stylesheets", function(done) {
-      var uid = triggerBuild({
-        builds: [{ format: "html" }],
-        finish: function() {
-          fs.readFileSync(path.join('tmp', uid, 'build1/assets/katex.css'));
-          done();
-        }
-      });
+  it("should include katex.css in the stylesheets", function(done) {
+    var uid = triggerBuild({
+      builds: [{ format: "html" }],
+      finish: function() {
+        fs.readFileSync(path.join('tmp', uid, 'build1/assets/katex.css'));
+        done();
+      }
     });
-
-    it("should include katex.min.js in the javascripts", function(done) {
-      var uid = triggerBuild({
-        builds: [{ format: "html" }],
-        finish: function() {
-          fs.readFileSync(path.join('tmp', uid, 'build1/assets/katex.min.js'));
-          done();
-        }
-      });
-    });
-
-    it("should include fonts in the fonts", function(done) {
-      var uid = triggerBuild({
-        builds: [{ format: "html" }],
-        finish: function() {
-          fs.readFileSync(path.join('tmp', uid, 'build1/assets/KaTeX_AMS-Regular.eot'));
-          done();
-        }
-      });
-    });
-
   });
 
-  describe("PDF", function() {
-
-    it("should remove annotations inside mathml", function(done) {
-      var uid = triggerBuild({
-        builds: [{ format: "pdf" }],
-        finish: function() {
-          var content = fs.readFileSync(path.join('tmp', uid, 'build1/consolidated.html')).toString();
-          expect(content).not.toMatch("<annotation");
-          done();
-        }
-      });
+  it("should include fonts in the fonts", function(done) {
+    var uid = triggerBuild({
+      builds: [{ format: "html" }],
+      finish: function() {
+        fs.readFileSync(path.join('tmp', uid, 'build1/assets/KaTeX_AMS-Regular.eot'));
+        done();
+      }
     });
-
   });
 
 });
