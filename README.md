@@ -1,6 +1,6 @@
 ## Magicbook katex
 
-This plugin allows you to write math equations via latex math expressions and automatically render these with the Katex math library. We chose to use Katex over Mathjax as it's faster, smaller, and supports bundling alongside other libraries. Mathjax is problematic when it comes to these things.
+This plugin allows you to write math equations via latex math expressions and automatically render them in the browser with the Katex math library and in PDF as straight up MathML. We chose to use Katex over Mathjax as it's faster, smaller, and supports bundling alongside other libraries.
 
 ## Using the plugin
 
@@ -26,6 +26,16 @@ This is an inline equation: $$5 + 5$$. The following is a block equation:
 $$
 5 + 5
 $$
+```
+
+If you're writing in HTML, the same file would look like this:
+
+```html
+<p>This is an inline equation: <span data-type="equation">5 + 5</span>. The following is a block equation:</p>
+
+<div data-type="equation">
+5 + 5
+</div>
 ```
 
 The required JavaScript, stylesheets and fonts will automatically be added to the build assets during the build process.
