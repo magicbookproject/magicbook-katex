@@ -8,6 +8,7 @@ var path = require('path');
 function triggerBuild(config) {
   var uid = uuid.v4().replace('-', "").substring(0, 10);
   _.defaults(config, {
+    layout: "book/layouts/default.html",
     addPlugins: ["./src/katex.js"],
     files: ["book/content/math.md"],
     destination: "tmp/"+uid+"/:build"
@@ -22,15 +23,31 @@ beforeAll(function(done) {
   });
 });
 
-describe("Katex plugin", function() {
+describe("Katex", function() {
 
-  it("should convert $$ to katex", function(done) {
+
+  it("should convert markdown $$ to katex", function(done) {
     var uid = triggerBuild({
       builds: [{ format: "html" }],
       finish: function() {
         var content = fs.readFileSync(path.join('tmp', uid, 'build1/math.html')).toString();
-        expect(content).toMatch("<math>");
+        expect(content).toMatch("<span class=\"katex\"><span class=\"katex-mathml\"><math>");
+        expect(content).toMatch("<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math>");
         expect(content).not.toMatch("\\$\\$");
+        done();
+      }
+    });
+  });
+
+  it("should convert html data-type=equation to katex", function(done) {
+    var uid = triggerBuild({
+      builds: [{ format: "html" }],
+      files: ["book/content/moremath.html"],
+      finish: function() {
+        var content = fs.readFileSync(path.join('tmp', uid, 'build1/moremath.html')).toString();
+        expect(content).toMatch("<span class=\"katex\"><span class=\"katex-mathml\"><math>");
+        expect(content).toMatch("<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math>");
+        expect(content).not.toMatch("data-type=\"equation\"");
         done();
       }
     });

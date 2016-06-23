@@ -1,23 +1,26 @@
 {
   "repository": "https://github.com/magicbookproject/magicbook-katex.git",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "magicbook-katex",
   "description": "Katex plugin for magicbook",
   "author": "magicbookproject",
   "license": "MIT",
   "main": "src/katex.js",
-  "keywords" : [
+  "keywords": [
     "magicbook",
     "magicbook-plugin"
   ],
   "dependencies": {
+    "cheerio": "^0.20.0",
+    "katex": "^0.6.0",
     "lodash": "^4.6.1",
-    "markdown-it-katex": "^1.1.0"
+    "markdown-it-katex": "^1.1.0",
+    "through2": "^2.0.1"
   },
   "devDependencies": {
     "jasmine": "^2.4.1",
     "rimraf": "^2.5.2",
     "node-uuid": "^1.4.7",
-    "magicbook": "^0.1.0"
+    "magicbook": "latest"
   }
 }
