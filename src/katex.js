@@ -24,7 +24,7 @@ Plugin.prototype = {
     if(_.isString(config.stylesheets.files)) {
       config.stylesheets.files = [config.stylesheets.files]
     }
-    config.stylesheets.files.push(css);
+    config.stylesheets.files.unshift(css);
 
     // Fonts
     var fonts = path.join(__dirname, "..", "assets", "katex", "fonts", "**/*.*");
@@ -33,7 +33,7 @@ Plugin.prototype = {
     if(_.isString(config.fonts.files)) {
       config.fonts.files = [config.fonts.files]
     }
-    config.fonts.files.push(fonts);
+    config.fonts.files.unshift(fonts);
 
     callback(null, config, extras);
   },
