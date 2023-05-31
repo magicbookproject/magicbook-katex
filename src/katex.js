@@ -18,7 +18,7 @@ Plugin.prototype = {
     extras.md.use(markdownitKatex);
 
     // Stylesheets
-    var css = path.join(__dirname, "..", "node_modules/katex/dist", "katex.css");
+    var css = path.join(__dirname, "../node_modules/katex/dist/katex.css");
     config.stylesheets = config.stylesheets || {};
     config.stylesheets.files = config.stylesheets.files || [];
     if(_.isString(config.stylesheets.files)) {
@@ -27,7 +27,7 @@ Plugin.prototype = {
     config.stylesheets.files.unshift(css);
 
     // Fonts
-    var fonts = path.join(__dirname, "node_modules/katex/dist", "fonts", "**/*.*");
+    var fonts = path.join(__dirname, "../node_modules/katex/dist/fonts/*.*");
     config.fonts = config.fonts || {};
     config.fonts.files = config.fonts.files || [];
     if(_.isString(config.fonts.files)) {
@@ -54,7 +54,7 @@ Plugin.prototype = {
       });
 
       if(found) {
-        file.contents = new Buffer(file.$el.html());
+        file.contents = Buffer.from(file.$el.html());
       }
 
       cb(null, file);

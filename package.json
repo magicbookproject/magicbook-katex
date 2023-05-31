@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/magicbookproject/magicbook-katex.git",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "name": "magicbook-katex",
   "description": "Katex plugin for magicbook",
   "author": "magicbookproject",
@@ -12,7 +12,7 @@
   ],
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "katex": "^0.10.2",
+    "katex": "^0.16.7",
     "lodash": "^4.17.11",
     "markdown-it-katex": "^2.0.3",
     "through2": "^3.0.1"
@@ -21,6 +21,6 @@
     "jasmine": "^3.4.0",
     "rimraf": "^2.6.3",
     "node-uuid": "^1.4.8",
-    "magicbook": "latest"
+    "magicbook": "^0.1.31"
   }
 }
