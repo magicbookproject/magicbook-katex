@@ -17,8 +17,10 @@ Plugin.prototype = {
     // make sure we parse $-$ and $$-$$ into katex markup
     extras.md.use(markdownitKatex);
 
+    var katexPath = path.dirname(require.resolve("katex"));
+
     // Stylesheets
-    var css = path.join(__dirname, "../node_modules/katex/dist/katex.css");
+    var css = path.join(katexPath, "katex.css");
     config.stylesheets = config.stylesheets || {};
     config.stylesheets.files = config.stylesheets.files || [];
     if(_.isString(config.stylesheets.files)) {
@@ -27,7 +29,7 @@ Plugin.prototype = {
     config.stylesheets.files.unshift(css);
 
     // Fonts
-    var fonts = path.join(__dirname, "../node_modules/katex/dist/fonts/*.*");
+    var fonts = path.join(katexPath, "fonts/*.*");
     config.fonts = config.fonts || {};
     config.fonts.files = config.fonts.files || [];
     if(_.isString(config.fonts.files)) {
