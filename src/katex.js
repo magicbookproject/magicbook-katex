@@ -50,6 +50,9 @@ Plugin.prototype = {
       file.$el('span[data-type="equation"],div[data-type="equation"]').each(function(i, el) {
         var jel = file.$el(this);
         var latex = jel.html();
+
+        latex = latex.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
         var newEl = file.$el(katex.renderToString(latex, { displayMode: el.tagName == 'div' }));
         jel.replaceWith(newEl);
         found = true;
